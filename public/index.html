@@ -1,1 +1,90 @@
-Hello Netlify!
+<html lang="ja">
+<meta charset="UTF-8"/>
+
+<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
+<script>
+
+function showTable(data){
+	const sortableTable = new SortableTable();
+
+	sortableTable.setTable(document.querySelector('#my-table1'));
+
+	sortableTable.setCellRenderer((col, row) => {
+	    const colValue = row[col.id];
+
+		if (col.isHeader) {
+			// cell-is-a-header
+	    	if (typeof colValue === 'undefined') return '<th></th>'
+
+			return `<th>${colValue}</th>`;
+		}else{
+			// cell-is-not-a-header
+		    if (typeof colValue === 'undefined') return '<td></td>';
+
+		    if (col.id === 'avatarUrlHttp') return `<td><img src="${colValue}"/></td>`;
+
+			return `<td>${colValue}</td>`;
+		}
+	});
+
+	sortableTable.setData(data);
+}
+
+window.onload = function() {
+	let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
+
+	var pageUrl = window.location.href
+	console.log(`pageUrl=${pageUrl}`);
+
+	fetch("./data.json?_="+cacheBuster)
+	  .then(response => response.json())
+	  .then(data => showTable(data));
+};
+
+</script>
+<body>
+<noscript>JavaScriptを有効にしてください。</noscript>
+
+<div class="sortable-table">
+    <table id="my-table1">
+        <thead>
+        <tr>
+            <th data-id="num_joined_members" sortable>
+                人数
+            </th>
+
+
+            <th data-id="world_readable_int" sortable>
+               外部から閲覧
+            </th>
+
+            <th data-id="guest_can_join_int" sortable>
+               ゲスト参加可能
+            </th>
+
+            <th data-id="avatarUrlHttp" sortable>
+               avatarUrlHttp
+            </th>
+
+            <th data-id="name" sortable>
+               name
+            </th>
+
+            <th data-id="topic" sortable>
+               topic
+            </th>
+
+            <th data-id="canonical_alias" sortable>
+               canonical_alias
+            </th>
+
+            <th data-id="room_id" sortable>
+               room_id
+            </th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+</body>
+</html>
