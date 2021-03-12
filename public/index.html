@@ -21,7 +21,7 @@ function showTable(data){
 			// cell-is-not-a-header
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
-		    if (col.id === 'avatarUrlHttp') return `<td><img src="${colValue}"/></td>`;
+		    if (col.id === 'avatarUrlHttp') return `<td><img src="${colValue}" width="64 height="64"/></td>`;
 
 			return `<td>${colValue}</td>`;
 		}
@@ -46,11 +46,11 @@ window.onload = function() {
 </script>
 <noscript>JavaScriptを有効にしてください。</noscript>
 <div class="sortable-table">
-    <table id="my-table1" BORDER="1">
+    <table id="my-table1" border="1">
         <thead>
         <tr>
             <th data-id="num_joined_members" sortable>人数</th>
-            <th data-id="avatarUrlHttp" sortable WIDTH="64 HEIGHT="64">画像</th>
+            <th data-id="avatarUrlHttp" sortable>画像</th>
             <th data-id="name" sortable>名前</th>
             <th data-id="topic" sortable>トピック</th>
             <th data-id="canonical_alias" sortable>公開名</th>
