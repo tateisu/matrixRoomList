@@ -33,10 +33,12 @@ function showTable(data){
 window.onload = function() {
 	let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
 
-	var pageUrl = window.location.href
-	console.log(`pageUrl=${pageUrl}`);
+	let dataUrl ="./data.json";
+	if( window.location.href.toString().startsWith("file://") ){
+		dataUrl = "https://matrix-room-list-jp.netlify.app/data.json";
+	}
 
-	fetch("./data.json?_="+cacheBuster)
+	fetch(`${dataUrl}?_=${cacheBuster}`)
 	  .then(response => response.json())
 	  .then(data => showTable(data));
 };
