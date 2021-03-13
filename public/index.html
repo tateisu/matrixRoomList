@@ -19,6 +19,10 @@ function escapeEntities(src){
   return src.replace( /[&'`"<>]/g, function(c) { return escapeMap[c] }); //'
 }
 
+function genListItems(array){
+	return array.map(function(v){ return "<li>"+escapeEntities(v)+"</li>"}).join("");
+}
+
 function showTable(data){
 
 	const sortableTable = new SortableTable();
@@ -47,13 +51,19 @@ function showTable(data){
 	sortableTable.setData(data.rooms);
 
 	let elem = document.querySelector('#updated-at');
-	elem.innerHTML = [data.updatedAt].map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	let content = genListItems([data.updatedAt]);
+	console.log(`${elem} ${content}`);
+	elem.innerHTML = content;
 	
 	elem = document.querySelector('#servers');
-	elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	let content = genListItems(data.servers);
+	console.log(`${elem} ${content}`);
+	elem.innerHTML = content;
 
 	elem = document.querySelector('#extra-servers');
-	elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	content = genListItems(data.extraServers);
+	console.log(`${elem} ${content}`);
+	elem.innerHTML = content;
 
 }
 
@@ -108,16 +118,6 @@ table td{
 
 <p>更新頻度は適当です。要望などあれば <a href="https://mastodon.juggler.jp/@tateisu">@tateisu@mastodon.juggler.jp</a> へ投げてください。</p>
 
-<h4>データ更新時刻</h4>
-<ul id="updated-at"></ul>
-
-<h4>取得サーバ</h4>
-<ul id="servers"></ul>
-
-<h4>一部だけ取得しているサーバ</h4>
-<ul id="extra-servers"></ul>
-
-<H4>部屋リスト</H4>
 <noscript>JavaScriptを有効にしてください。</noscript>
 <div class="sortable-table">
     <table id="my-table1">
@@ -135,4 +135,13 @@ table td{
         </thead>
     </table>
 </div>
+
+<h4>データ更新時刻</h4>
+<ul id="updated-at"></ul>
+
+<h4>取得サーバ</h4>
+<ul id="servers"></ul>
+
+<h4>一部だけ取得しているサーバ</h4>
+<ul id="extra-servers"></ul>
 </html>
