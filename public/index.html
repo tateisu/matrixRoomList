@@ -47,16 +47,13 @@ function showTable(data){
 	sortableTable.setData(data.rooms);
 
 	let elem = document.querySelector('#updated-at');
-	console.log(elem);
-	if(elem) elem.innerHTML = [data.updatedAt].map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
-
+	elem.innerHTML = [data.updatedAt].map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	
 	elem = document.querySelector('#servers');
-	console.log(elem);
-	if(elem) elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 	elem = document.querySelector('#extra-servers');
-	console.log(elem);
-	if(elem) elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
+	elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 }
 
