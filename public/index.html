@@ -15,7 +15,6 @@ const escapeMap = {
 
 function escapeEntities(src){
   if(typeof src !== 'string') return src;
-  }
 
   return src.replace( /[&'`"<>]/g, function(c) { return escapeMap[c] }); //'
 }
