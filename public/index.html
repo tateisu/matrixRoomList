@@ -50,10 +50,10 @@ function showTable(data){
 	if(elem) elem.innerHTML = escapeEntities(data.updatedAt);
 
 	elem = document.querySelector('#servers');
-	if(elem) elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"/li"}).join("");
+	if(elem) elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 	elem = document.querySelector('#extraServers');
-	if(elem) elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"/li"}).join("");
+	if(elem) elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 }
 
