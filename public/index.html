@@ -46,13 +46,13 @@ function showTable(data){
 
 	sortableTable.setData(data.rooms);
 
-	let elem = document.querySelector('#updatedAt');
+	let elem = document.querySelector('#updated-at');
 	if(elem) elem.innerHTML = [data.updatedAt].map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 	elem = document.querySelector('#servers');
 	if(elem) elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
-	elem = document.querySelector('#extraServers');
+	elem = document.querySelector('#extra-servers');
 	if(elem) elem.innerHTML = data.extraServers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 }
@@ -109,13 +109,13 @@ table td{
 <p>更新頻度は適当です。要望などあれば <a href="https://mastodon.juggler.jp/@tateisu">@tateisu@mastodon.juggler.jp</a> へ投げてください。</p>
 
 <h4>データ更新時刻</h4>
-<ul id="updatedAt"></ul>
+<ul id="updated-at"></ul>
 
 <h4>取得サーバ</h4>
 <ul id="servers"></ul>
 
 <h4>一部だけ取得しているサーバ</h4>
-<ul id="extraServers"></ul>
+<ul id="extra-servers"></ul>
 
 <H4>部屋リスト</H4>
 <noscript>JavaScriptを有効にしてください。</noscript>
