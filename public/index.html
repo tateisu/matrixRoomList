@@ -44,6 +44,8 @@ function showTable(data){
 			// cell-is-not-a-header
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
+		    if (col.id === 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
+
 		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
 		    if (col.id === 'canonical_alias') return `<td><a href="https://matrix.juggler.jp/#/room/${colValue}" target="_blank">${colValue}</a></td>`;
 
