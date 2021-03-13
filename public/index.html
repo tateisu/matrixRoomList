@@ -22,7 +22,6 @@ function escapeEntities(src){
 function setListItems(selector,array){
 	let elem = document.querySelector(selector);
 	let content = array.map(function(v){ return "<li>"+escapeEntities(v)+"</li>"}).join("");
-	console.log(`${elem} ${content}`);
 	elem.innerHTML = content;
 }
 
