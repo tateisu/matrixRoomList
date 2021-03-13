@@ -22,6 +22,7 @@ function showTable(data){
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
 		    if (col.id === 'avatarUrlHttp') return `<td><img src="${colValue}" width="64 height="64"/></td>`;
+		    if (col.id === 'canonical_alias') return `<td><a href="https://matrix.juggler.jp/#/room/${colValue}" target="_blank">${colValue}</a></td>`;
 
 			return `<td>${colValue}</td>`;
 		}
