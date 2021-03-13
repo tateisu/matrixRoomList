@@ -47,7 +47,7 @@ function showTable(data){
 	sortableTable.setData(data.rooms);
 
 	let elem = document.querySelector('#updatedAt');
-	if(elem) elem.innerHTML = escapeEntities("<li>"+escapeEntities(data.updatedAt)+"</li>");
+	if(elem) elem.innerHTML = [data.updatedAt].map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
 
 	elem = document.querySelector('#servers');
 	if(elem) elem.innerHTML = data.servers.map(function(v){ "<li>"+escapeEntities(v)+"</li>"}).join("");
