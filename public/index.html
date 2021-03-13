@@ -44,12 +44,12 @@ function showTable(data){
 			// cell-is-not-a-header
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
-		    if (col.id === 'avatarUrlHttp') return `<td><img src="${colValue}" width="64 height="64"/></td>`;
+		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
 		    if (col.id === 'canonical_alias') return `<td><a href="https://matrix.juggler.jp/#/room/${colValue}" target="_blank">${colValue}</a></td>`;
 
 		    if (col.id === 'world_readable_int' || col.id === "guest_can_join_int" ){
 				let flag = colValue == "1" ? "○" : "&nbsp;";
-				return `<td>${flag}</td>`;
+				return `<td style="text-align:center">${flag}</td>`;
 			}
 
 			return `<td>${colValue}</td>`;
