@@ -3,7 +3,7 @@
 <title>Matrix日本サーバ勢の公開部屋リスト</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
+<script src="./sortable-table.js"></script>
 <script>
 
 const escapeMap = {
@@ -64,11 +64,6 @@ function showTable(data){
 	setListItems('#updated-at',[data.updatedAt]);
 	setListItems('#servers',data.servers);
 	setListItems('#extra-servers',data.extraServers);
-
-	document.querySelectorAll('sortable-tabl th')
-	.forEach(function(elem) {
-	  	elem.setAttribute('style', 'cursor: pointer; background-position: right; background-repeat: no-repeat; padding-right: 20px !important;');
-	});
 }
 
 window.onload = function() {
@@ -111,7 +106,6 @@ table th {
 	border-left: solid 1px black;
 	border-right: solid 1px black;
 	background-color: #ddd;
-    padding-right: 20px !important;
 }
 
 table td{
