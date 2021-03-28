@@ -48,7 +48,7 @@ function showTable(data){
 		    if (col.id === 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
 
 		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
-		    if (col.id === 'canonical_alias') return `<td><a href="${rom.linkWebUI}" target="_blank">${colValue}</a></td>`;
+		    if (col.id === 'canonical_alias') return `<td><a href="${row.linkWebUI}" target="_blank">${colValue}</a></td>`;
 
 		    if (col.id === 'world_readable_int' || col.id === "guest_can_join_int" ){
 				let flag = colValue == "1" ? "○" : "&nbsp;";
