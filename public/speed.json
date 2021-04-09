@@ -1,0 +1,90 @@
+[
+   {
+      "canonical_alias" : "#news:smith.gdgd.jp.net",
+      "speed" : 4602
+   },
+   {
+      "canonical_alias" : "#neta:matrix.juggler.jp",
+      "speed" : 1220
+   },
+   {
+      "speed" : 759,
+      "canonical_alias" : "#srad:matrix.juggler.jp"
+   },
+   {
+      "speed" : 259,
+      "canonical_alias" : "#synapse:matrix.org"
+   },
+   {
+      "speed" : 160,
+      "canonical_alias" : "#programming:matrix.juggler.jp"
+   },
+   {
+      "canonical_alias" : "#soccer:matrix.juggler.jp",
+      "speed" : 99
+   },
+   {
+      "canonical_alias" : "#element-web:matrix.org",
+      "speed" : 86
+   },
+   {
+      "canonical_alias" : "#miko:matrix.juggler.jp",
+      "speed" : 80
+   },
+   {
+      "canonical_alias" : null,
+      "speed" : 77
+   },
+   {
+      "speed" : 66,
+      "canonical_alias" : "#baseball-watch:matrix.juggler.jp"
+   },
+   {
+      "speed" : 62,
+      "canonical_alias" : "#omokan:matrix.juggler.jp"
+   },
+   {
+      "speed" : 42,
+      "canonical_alias" : "#lobby:matrix.juggler.jp"
+   },
+   {
+      "speed" : 25,
+      "canonical_alias" : "#retro-game:matrix.juggler.jp"
+   },
+   {
+      "canonical_alias" : "#anime-watch:matrix.juggler.jp",
+      "speed" : 8
+   },
+   {
+      "canonical_alias" : "#iyh:matrix.juggler.jp",
+      "speed" : 6
+   },
+   {
+      "canonical_alias" : "#academianut:matrix.fedibird.com",
+      "speed" : 5
+   },
+   {
+      "canonical_alias" : "#pc:matrix.juggler.jp",
+      "speed" : 4
+   },
+   {
+      "canonical_alias" : "#nowplaying:matrix.juggler.jp",
+      "speed" : 3
+   },
+   {
+      "canonical_alias" : "#android:matrix.juggler.jp",
+      "speed" : 1
+   },
+   {
+      "speed" : 1,
+      "canonical_alias" : "#tv-watch:matrix.juggler.jp"
+   },
+   {
+      "canonical_alias" : "#tateisu-workshop:matrix.juggler.jp",
+      "speed" : 1
+   },
+   {
+      "canonical_alias" : "#azurlane:matrix.juggler.jp",
+      "speed" : 1
+   }
+]
