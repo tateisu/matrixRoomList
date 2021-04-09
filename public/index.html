@@ -33,7 +33,7 @@ function showTable(data){
 	if( speedMap ){
 		data.rooms.forEach(function(room){
 			let iv = speedMap[room['canonical_alias']];
-			room.speed = iv ? iv : '?';
+			room.speed = iv ? iv : 0;
 		})
 	}
 
@@ -53,7 +53,7 @@ function showTable(data){
 			// cell-is-not-a-header
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
-		    if (col.id === 'speed') return `<td style="text-align:center">${colValue}</td>`;
+		    if (col.id === 'speed') return `<td style="text-align:center">${colValue?colValue:'?'}</td>`;
 		    if (col.id === 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
 
 		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
