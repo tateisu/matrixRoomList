@@ -29,6 +29,14 @@ function setListItems(selector,array){
 
 function showTable(data){
 
+	let speedMap = data.speedMap
+	if( speedMap ){
+		data.rooms.forEach(function(room){
+			let iv = speedMap[room['canonical_alias']];
+			room.speed = if(iv){ iv } else{ '?' }
+		})
+	}
+
 	const sortableTable = new SortableTable();
 
 	sortableTable.setTable(document.querySelector('#my-table1'));
@@ -45,6 +53,7 @@ function showTable(data){
 			// cell-is-not-a-header
 		    if (typeof colValue === 'undefined') return '<td></td>';
 
+		    if (col.id === 'speed') return `<td style="text-align:center">${colValue}</td>`;
 		    if (col.id === 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
 
 		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
@@ -66,17 +75,20 @@ function showTable(data){
 	setListItems('#extra-servers',data.extraServers);
 }
 
-window.onload = function() {
+window.onload = async function() {
 	let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
 
-	let dataUrl ="./data.json";
-	if( window.location.href.toString().startsWith("file://") ){
-		dataUrl = "https://matrix-room-list-jp.netlify.app/data.json";
+	let res = await fetch(`./data.json?_=${cacheBuster}`)
+	let data = await response.json()
+
+	try{
+		res = await fetch(`./speed.json?_=${cacheBuster}`)
+		data.speedMap = await response.json()
+	}catch(err){
+		console.log(err)
 	}
 
-	fetch(`${dataUrl}?_=${cacheBuster}`)
-	  .then(response => response.json())
-	  .then(data => showTable(data));
+	showTable(data)
 };
 
 </script>
@@ -135,6 +147,7 @@ table tr td:last-child, table tr th:last-child{
         <thead>
         <tr>
             <th data-id="num_joined_members" sortable>人数</th>
+            <th data-id="speed" sortable>Msg/日</th>
             <th data-id="avatarUrlHttp" sortable>画像</th>
             <th data-id="name" sortable>名前</th>
             <th data-id="topic" sortable>トピック</th>
