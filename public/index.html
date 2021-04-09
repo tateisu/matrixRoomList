@@ -79,11 +79,11 @@ window.onload = async function() {
 	let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
 
 	let res = await fetch(`./data.json?_=${cacheBuster}`)
-	let data = await response.json()
+	let data = await res.json()
 
 	try{
 		res = await fetch(`./speed.json?_=${cacheBuster}`)
-		data.speedMap = await response.json()
+		data.speedMap = await res.json()
 	}catch(err){
 		console.log(err)
 	}
