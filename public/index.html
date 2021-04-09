@@ -33,7 +33,7 @@ function showTable(data){
 	if( speedMap ){
 		data.rooms.forEach(function(room){
 			let iv = speedMap[room['canonical_alias']];
-			room.speed = if(iv){ iv } else{ '?' }
+			room.speed = iv ? iv : '?';
 		})
 	}
 
