@@ -1,16 +1,17 @@
 {
-   "#baseball-watch:matrix.juggler.jp" : 39,
    "#tateisu-workshop:matrix.juggler.jp" : 1,
-   "#element-web:matrix.org" : 270,
-   "#omoneta:smith.gdgd.jp.net" : 793,
-   "#srad:matrix.juggler.jp" : 511,
-   "#miko:matrix.juggler.jp" : 138,
-   "#programming:matrix.juggler.jp" : 110,
-   "#omokan:matrix.juggler.jp" : 85,
+   "#miko:matrix.juggler.jp" : 136,
+   "#omokan:matrix.juggler.jp" : 101,
+   "#srad:matrix.juggler.jp" : 570,
    "#lobby:matrix.juggler.jp" : 32,
+   "#pc:matrix.juggler.jp" : 6,
+   "#programming:matrix.juggler.jp" : 110,
+   "#element-web:matrix.org" : 320,
+   "#soccer:matrix.juggler.jp" : 34,
+   "#omoneta:smith.gdgd.jp.net" : 810,
+   "#neta:matrix.juggler.jp" : 966,
    "#trpg:matrix.juggler.jp" : 2,
-   "#soccer:matrix.juggler.jp" : 30,
-   "#anime-watch:matrix.juggler.jp" : 5,
-   "#neta:matrix.juggler.jp" : 941,
-   "#academianut:matrix.fedibird.com" : 8
+   "#baseball-watch:matrix.juggler.jp" : 39,
+   "#academianut:matrix.fedibird.com" : 8,
+   "#anime-watch:matrix.juggler.jp" : 5
 }
