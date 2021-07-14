@@ -1,16 +1,16 @@
 {
-   "#synapse:matrix.org" : 839,
+   "#srad:matrix.juggler.jp" : 1052,
+   "#element-translations:matrix.org" : 142,
+   "#synapse:matrix.org" : 821,
+   "#miko:matrix.juggler.jp" : 36,
+   "#retro-game:matrix.juggler.jp" : 5,
+   "#neta:matrix.juggler.jp" : 683,
+   "#omoneta:smith.gdgd.jp.net" : 560,
+   "#element-web:matrix.org" : 134,
    "#tateisu-workshop:matrix.juggler.jp" : 1,
-   "#miko:matrix.juggler.jp" : 38,
-   "#soccer:matrix.juggler.jp" : 167,
-   "#lobby:matrix.juggler.jp" : 7,
-   "#baseball-watch:matrix.juggler.jp" : 166,
-   "#omokan:matrix.juggler.jp" : 85,
-   "#srad:matrix.juggler.jp" : 1048,
-   "#element-translations:matrix.org" : 114,
-   "#neta:matrix.juggler.jp" : 679,
+   "#omokan:matrix.juggler.jp" : 137,
    "#anime-watch:matrix.juggler.jp" : 9,
-   "#element-web:matrix.org" : 120,
-   "#omoneta:smith.gdgd.jp.net" : 555,
-   "#retro-game:matrix.juggler.jp" : 5
+   "#lobby:matrix.juggler.jp" : 7,
+   "#soccer:matrix.juggler.jp" : 155,
+   "#baseball-watch:matrix.juggler.jp" : 165
 }
