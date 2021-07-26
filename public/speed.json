@@ -1,17 +1,16 @@
 {
-   "#camera:matrix.juggler.jp" : 1,
-   "#omoneta:smith.gdgd.jp.net" : 571,
-   "#anime-watch:matrix.juggler.jp" : 7,
-   "#retro-game:matrix.juggler.jp" : 2,
+   "#element-web:matrix.org" : 99,
    "#omokan:matrix.juggler.jp" : 51,
-   "#element-web:matrix.org" : 131,
    "#tateisu-workshop:matrix.juggler.jp" : 1,
-   "#miko:matrix.juggler.jp" : 257,
-   "#synapse:matrix.org" : 226,
-   "#soccer:matrix.juggler.jp" : 634,
-   "#srad:matrix.juggler.jp" : 934,
-   "#neta:matrix.juggler.jp" : 684,
-   "#lobby:matrix.juggler.jp" : 6,
+   "#anime-watch:matrix.juggler.jp" : 8,
+   "#soccer:matrix.juggler.jp" : 530,
    "#fediverse:nibbana.jp" : 12,
-   "#baseball-watch:matrix.juggler.jp" : 22
+   "#miko:matrix.juggler.jp" : 206,
+   "#retro-game:matrix.juggler.jp" : 2,
+   "#srad:matrix.juggler.jp" : 934,
+   "#baseball-watch:matrix.juggler.jp" : 20,
+   "#camera:matrix.juggler.jp" : 1,
+   "#synapse:matrix.org" : 248,
+   "#neta:matrix.juggler.jp" : 834,
+   "#omoneta:smith.gdgd.jp.net" : 709
 }
