@@ -15,10 +15,11 @@ const escapeMap = {
     '>': '&gt;',
 };
 
+const reEscape = /[&'`"<>]/; //'
+
 function escapeEntities(srcNullable){
     // nullable to string
-     return String.valueOf(srcNullable)
-        .replace( /[&'`"<>]/g, function(c) { return escapeMap[c] }); //'
+     return String.valueOf(srcNullable).replaceAll(reEscape , function(c) { return escapeMap[c] }); 
 }
 
 function ellipsize(limit,srcNullable){
