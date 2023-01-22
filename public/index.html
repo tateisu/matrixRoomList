@@ -23,7 +23,7 @@ function escapeEntities(srcNullable){
 }
 
 function ellipsize(limit,srcNullable){
-    let str = srcNullable ==null ? "null" : srcNullable.toString();
+    let str = srcNullable == null ? "null" : srcNullable.toString();
     retutn str.length <= limit ? str : str.substring(0,limit-1)+"…";
 }
 
