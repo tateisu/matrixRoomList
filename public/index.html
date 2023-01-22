@@ -24,7 +24,7 @@ function escapeEntities(srcNullable){
 
 function ellipsize(limit,srcNullable){
     let str = (srcNullable == null ? "null" : srcNullable.toString());
-    retutn str.length <= limit ? str : str.substring(0,limit-1)+"…";
+    return str.length <= limit ? str : str.substring(0,limit-1)+"…";
 }
 
 function setListItems(selector,array){
