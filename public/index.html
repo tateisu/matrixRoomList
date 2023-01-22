@@ -7,12 +7,12 @@
 <script>
 
 const escapeMap = {
-  '&': '&amp;',
-  "'": '&#x27;',
-  '`': '&#x60;',
-  '"': '&quot;',
-  '<': '&lt;',
-  '>': '&gt;',
+    '&': '&amp;',
+    "'": '&#x27;',
+    '`': '&#x60;',
+    '"': '&quot;',
+    '<': '&lt;',
+    '>': '&gt;',
 };
 
 function escapeEntities(src){
@@ -21,74 +21,81 @@ function escapeEntities(src){
   return src.replace( /[&'`"<>]/g, function(c) { return escapeMap[c] }); //'
 }
 
+function ellipsize(limit,src){
+    return "&amp;";
+}
+
 function setListItems(selector,array){
-	let elem = document.querySelector(selector);
-	let content = array.map(function(v){ return "<li>"+escapeEntities(v)+"</li>"}).join("");
-	elem.innerHTML = content;
+    let elem = document.querySelector(selector);
+    let content = array.map(function(v){ return "<li>"+escapeEntities(v)+"</li>"}).join("");
+    elem.innerHTML = content;
 }
 
 function showTable(data){
 
-	let speedMap = data.speedMap
-	if( speedMap ){
-		data.rooms.forEach(function(room){
-			let iv = speedMap[room['canonical_alias']];
-			room.speed = iv ? iv : 0;
-		})
-	}
+    let speedMap = data.speedMap
+    if( speedMap ){
+        data.rooms.forEach(function(room){
+            let iv = speedMap[room['canonical_alias']];
+            room.speed = iv ? iv : 0;
+        })
+    }
 
-	const sortableTable = new SortableTable();
+    const sortableTable = new SortableTable();
 
-	sortableTable.setTable(document.querySelector('#my-table1'));
+    sortableTable.setTable(document.querySelector('#my-table1'));
 
-	sortableTable.setCellRenderer((col, row) => {
-	    const colValue = row[col.id];
+    sortableTable.setCellRenderer((col, row) => {
+        const colValue = row[col.id];
 
-		if (col.isHeader) {
-			// cell-is-a-header
-	    	if (typeof colValue === 'undefined') return '<th></th>'
+        if (col.isHeader) {
+            // cell-is-a-header
+            if (typeof colValue === 'undefined') return '<th></th>'
 
-			return `<th>${colValue}</th>`;
-		}else{
-			// cell-is-not-a-header
-		    if (typeof colValue === 'undefined') return '<td></td>';
+            return `<th>${colValue}</th>`;
+        }else{
 
-		    if (col.id === 'speed') return `<td style="text-align:center">${colValue?colValue:'?'}</td>`;
-		    if (col.id === 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
+            // cell-is-not-a-header
+            if (typeof colValue == 'undefined') return '<td></td>';
 
-		    if (col.id === 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
-		    if (col.id === 'canonical_alias') return `<td><a href="${row.linkWebUI}" target="_blank">${colValue}</a></td>`;
+            if (col.id == 'speed') return `<td style="text-align:center">${colValue?colValue:'?'}</td>`;
+            if (col.id == 'num_joined_members') return `<td style="text-align:center">${colValue}</td>`;
 
-		    if (col.id === 'world_readable_int' || col.id === "guest_can_join_int" ){
-				let flag = colValue == "1" ? "○" : "&nbsp;";
-				return `<td style="text-align:center">${flag}</td>`;
-			}
+            if (col.id == 'avatarUrlHttp') return `<td style="text-align:center"><img src="${colValue}" width="64 height="64"/></td>`;
+            if (col.id == 'canonical_alias') return `<td><a href="${row.linkWebUI}" target="_blank">${colValue}</a></td>`;
 
-			return `<td>${colValue}</td>`;
-		}
-	});
+            if (col.id == 'world_readable_int' || col.id === "guest_can_join_int" ){
+                let flag = colValue == "1" ? "○" : "&nbsp;";
+                return `<td style="text-align:center">${flag}</td>`;
+            }
 
-	sortableTable.setData(data.rooms);
+            if(col.id == 'topic' ) return `<td>${ellipsize(128,colValue)}</td>`;
 
-	setListItems('#updated-at',[data.updatedAt]);
-	setListItems('#servers',data.servers);
-	setListItems('#extra-servers',data.extraServers);
+            return `<td>${colValue}</td>`;
+        }
+    });
+
+    sortableTable.setData(data.rooms);
+
+    setListItems('#updated-at',[data.updatedAt]);
+    setListItems('#servers',data.servers);
+    setListItems('#extra-servers',data.extraServers);
 }
 
 window.onload = async function() {
-	let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
+    let cacheBuster = Math.floor( (new Date().getTime()) / 3600000).toString();
 
-	let res = await fetch(`./data.json?_=${cacheBuster}`)
-	let data = await res.json()
+    let res = await fetch(`./data.json?_=${cacheBuster}`)
+    let data = await res.json()
 
-	try{
-		res = await fetch(`./speed.json?_=${cacheBuster}`)
-		data.speedMap = await res.json()
-	}catch(err){
-		console.log(err)
-	}
+    try{
+        res = await fetch(`./speed.json?_=${cacheBuster}`)
+        data.speedMap = await res.json()
+    }catch(err){
+        console.log(err)
+    }
 
-	showTable(data)
+    showTable(data)
 };
 
 </script>
@@ -97,45 +104,45 @@ window.onload = async function() {
 *,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 
 html{
-	background-color: #fff;
-	color:#000;
+    background-color: #fff;
+    color:#000;
 }
 
 body{
-	padding:12px;
-	-webkit-text-size-adjust: 100%;
+    padding:12px;
+    -webkit-text-size-adjust: 100%;
 }
 
 table {
-	margin-top:12px;
-	margin-bottom:24px;
-	border-collapse: collapse;
+    margin-top:12px;
+    margin-bottom:24px;
+    border-collapse: collapse;
 }
 
 table th {
-	padding: 3px;
-	vertical-align: middle !important;
-	border-left: solid 1px black;
-	border-right: solid 1px black;
-	background-color: #ddd;
+    padding: 3px;
+    vertical-align: middle !important;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    background-color: #ddd;
 }
 
 table td{
-	padding: 3px;
-	vertical-align: middle;
-	border-left: solid 1px black;
-	border-right: solid 1px black;
+    padding: 3px;
+    vertical-align: middle;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
 }
 
 table tr:nth-child(odd) td {
-	background: #eee;
+    background: #eee;
 }
 
 table tr td:first-child, table tr th:first-child{
-	border-left: none;
+    border-left: none;
 }
 table tr td:last-child, table tr th:last-child{
-	border-right: none;
+    border-right: none;
 }
 
 </style>
